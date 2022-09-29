@@ -4,7 +4,6 @@ from newspaper import Article
 import save_news
 delay = 10
 # create an article object
-# def nscrape(link, topic):
 #     print(f'link------>{link}\ntype:{type(link)}')
 #     # link = 'https://www.thedailystar.net/' + link 
 #     # print(f'link------>{link}\ntype:{type(link)}')
@@ -17,17 +16,6 @@ delay = 10
 #     authors = article.authors
 #     date = article.publish_date
 #     text = article.text
-    
-    
-#     news = {
-#         'link' : link,
-#         'title': title,
-#         'author':authors,
-#         'date' : str(date),
-#         'news_text': text
-#     }
-    
-#     save_news.save(news, topic)
 
 def scrape(page_link, topic):
     source = requests.get(page_link).text
@@ -64,18 +52,7 @@ def scrape(page_link, topic):
     
     for i in range(5):
         news_scraper.scrape(link_list[i], topics[topic])
-        # l = link_list[i]
-        # print(f'l is:',l)
-        # article = Article(link_list[i])
-        # article.download()
-        # article.parse()
-        # title = article.title
-        # link = article.url
-        # authors = article.authors
-        # date = article.publish_date
-        # text = article.text
-        
-        
+
         # news = {
         #     'link' : link,
         #     'title': title,
@@ -90,5 +67,5 @@ def scrape(page_link, topic):
 
 
 
-page_link = 'https://www.thedailystar.net/sports'  #actual link
-scrape(page_link, 2)
+# page_link = 'https://www.thedailystar.net/sports'  #actual link
+# scrape(page_link, 2)
