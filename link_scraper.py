@@ -135,10 +135,19 @@ def scrape_bbc(page_link, topic):
         2: 'sports'
     }
 
-    
+    print(f"\n\n\n\n\nbbc link list:\n{link_list}")
     for i in range(5):
         news_scraper.scrape(link_list[i], topics[topic])
         time.sleep(delay)
 
-page_link = 'https://www.bbc.com/news'  #actual link
-scrape_bbc(page_link, 2)
+def scrape(page, site, topic):
+    print("scrap e dhukse")
+    if site == 'star':
+        scrape_dstar(page, topic)
+    elif site == 'sun':
+        scrape_dsun(page, topic)
+    else:
+        scrape_bbc(page, topic)
+    
+# page_link = 'https://www.bbc.com/news'  #actual link
+# scrape_bbc(page_link, 2)

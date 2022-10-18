@@ -10,11 +10,14 @@ def scrape(l, topic='bleh'):
     article = Article(l)
     article.download()
     article.parse()
+    article.nlp()
+    
     title = article.title
     link = article.url
     authors = article.authors
     date = article.publish_date
     text = article.text
+    summary = article.summary
     print(text)
     print('***************\n')
     
@@ -23,7 +26,8 @@ def scrape(l, topic='bleh'):
         'title': title,
         'author':authors,
         'date' : str(date),
-        'news_text': text
+        'news_text': text,
+        'summary': summary
     }
     
     save_news.save(news, topic)
