@@ -17,7 +17,7 @@ delay = 10
 #     date = article.publish_date
 #     text = article.text
 
-def scrape_ds(page_link, topic):
+def scrape_dstar(page_link, topic):
     source = requests.get(page_link).text
     soup = BeautifulSoup(source, 'lxml')
 
@@ -65,7 +65,7 @@ def scrape_ds(page_link, topic):
         #news_scraper.scrape('https://www.thedailystar.net/news/bangladesh/news/give-them-the-wage-they-deserve-3130696')
         time.sleep(delay)
 
-def scrape_dsn(page_link, topic):
+def scrape_dsun(page_link, topic):
     source = requests.get(page_link).text
     soup = BeautifulSoup(source, 'lxml')
 
@@ -103,6 +103,42 @@ def scrape_dsn(page_link, topic):
 
         
     time.sleep(delay)
+    
+    
+def scrape_bbc(page_link, topic):
+    source = requests.get(page_link).text
+    soup = BeautifulSoup(source, 'lxml')
 
-page_link = 'https://www.daily-sun.com/online/national'  #actual link
-scrape_dsn(page_link, 2)
+    if soup:
+        print('ds page paisi')# print(soup)
+    link_list = []
+    #link_list_iterator = 0
+    
+    if page_link == 'https://www.bbc.com/news/world':
+        for a in soup.find_all('a', {"class": "gs-c-promo-heading gs-o-faux-block-link__overlay-link gel-pica-bold nw-o-link-split__anchor"}):
+            print("Found URL:", a['href'])
+            link_list.append('https://www.bbc.com' +a["href"])
+            
+    elif page_link == 'https://www.bbc.com/sport':
+        for a in soup.find_all('a', {"class": "ssrcss-1j8184x-PromoLink e1f5wbog0"}):
+            print("Found URL:", a['href'])
+            link_list.append('https://www.bbc.com' +a["href"])
+    
+    elif page_link == 'https://www.bbc.com/culture':
+        for a in soup.find_all('a', {"class": "rectangle-story-item__title"}):
+            print("Found URL:", a['href'])
+            link_list.append('https://www.bbc.com' +a["href"])
+
+    topics = {
+        0: 'bdnworld',
+        1: 'entertainment',
+        2: 'sports'
+    }
+
+    
+    for i in range(5):
+        news_scraper.scrape(link_list[i], topics[topic])
+        time.sleep(delay)
+
+page_link = 'https://www.bbc.com/news'  #actual link
+scrape_bbc(page_link, 2)
