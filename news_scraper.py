@@ -1,7 +1,7 @@
 from newspaper import Article
 import save_news, time
 # create an article object
-def scrape(l, topic):
+def scrape(l, topic='bleh'):
     time.sleep(5)
     print(f'link------>{l}\ntype:{type(l)}')
     # link = 'https://www.thedailystar.net/' + link 
@@ -15,7 +15,8 @@ def scrape(l, topic):
     authors = article.authors
     date = article.publish_date
     text = article.text
-    
+    print(text)
+    print('***************\n')
     
     news = {
         'link' : link,
@@ -26,5 +27,5 @@ def scrape(l, topic):
     }
     
     save_news.save(news, topic)
-    
-#scrape('https://www.thedailystar.net/middle-east/news/aminis-death-tragic-incident-chaos-unacceptable-iranian-president-3130881')
+    print(news)
+#scrape('https://bdnews24.com/technology/orzx622swg')
