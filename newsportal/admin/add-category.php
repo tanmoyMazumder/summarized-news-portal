@@ -7,12 +7,13 @@ if(strlen($_SESSION['login'])==0)
 header('location:index.php');
 }
 else{
-
+// category information
 if(isset($_POST['submit']))
 {
 $category=$_POST['category'];
 $description=$_POST['description'];
 $status=1;
+// add category
 $query=mysqli_query($con,"insert into tblcategory(CategoryName,Description,Is_Active) values('$category','$description','$status')");
 if($query)
 {
@@ -31,7 +32,7 @@ $error="Something went wrong . Please try again.";
 <html lang="en">
     <head>
 
-        <title>Newsportal | Add Category</title>
+        <title>NewsBulletin | Add Category</title>
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />

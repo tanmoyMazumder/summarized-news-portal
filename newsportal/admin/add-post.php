@@ -8,7 +8,7 @@ header('location:index.php');
 }
 else{
 
-// For adding post  
+// For adding new  post  
 if(isset($_POST['submit']))
 {
 $posttitle=$_POST['posttitle'];
@@ -58,7 +58,7 @@ $error="Something went wrong . Please try again.";
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!-- App title -->
-        <title>Newsportal | Add Post</title>
+        <title>NewsBulletin | Add Post</title>
 
         <!-- Summernote css -->
         <link href="../plugins/summernote/summernote.css" rel="stylesheet" />
@@ -189,7 +189,6 @@ while($result=mysqli_fetch_array($ret))
 <div class="form-group m-b-20">
 <label for="exampleInputEmail1">Sub Category</label>
 <select class="form-control" name="subcategory" id="subcategory" required>
-
 </select> 
 </div>
          
@@ -208,7 +207,7 @@ while($result=mysqli_fetch_array($ret))
 <div class="col-sm-12">
  <div class="card-box">
 <h4 class="m-b-30 m-t-0 header-title"><b>Feature Image</b></h4>
-<input type="file" class="form-control" id="postimage" name="postimage"  required>
+<input type="file" class="form-control" id="postimage" name="postimage"  >
 </div>
 </div>
 </div>

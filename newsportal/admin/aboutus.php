@@ -2,6 +2,7 @@
 session_start();
 include('includes/config.php');
 error_reporting(0);
+//update information if logged in
 if(strlen($_SESSION['login'])==0)
   { 
 header('location:index.php');
@@ -13,6 +14,7 @@ $pagetype='aboutus';
 $pagetitle=$_POST['pagetitle'];
 $pagedetails=$_POST['pagedescription'];
 
+//update values from input
 $query=mysqli_query($con,"update tblpages set PageTitle='$pagetitle',Description='$pagedetails' where PageName='$pagetype' ");
 if($query)
 {
@@ -35,7 +37,7 @@ $error="Something went wrong . Please try again.";
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!-- App title -->
-        <title>Newsportal | About us Page</title>
+        <title>NewsBulletin | About us Page</title>
 
         <!-- Summernote css -->
         <link href="../plugins/summernote/summernote.css" rel="stylesheet" />
