@@ -55,36 +55,63 @@ include('includes/config.php');
                 $total_rows = mysqli_fetch_array($result)[0];
                 $total_pages = ceil($total_rows / $no_of_records_per_page);
 
+                $max_columns = 2;
+
                 // $query = mysqli_query($con, "select tblposts.id as pid,tblposts.PostTitle as posttitle,tblposts.PostImage,tblcategory.CategoryName as category,tblcategory.id as cid,tblsubcategory.Subcategory as subcategory,tblposts.PostDetails as postdetails,tblposts.PostingDate as postingdate,tblposts.PostUrl as url from tblposts left join tblcategory on tblcategory.id=tblposts.CategoryId left join  tblsubcategory on  tblsubcategory.SubCategoryId=tblposts.SubCategoryId where tblposts.Is_Active=1 order by tblposts.id desc  LIMIT $offset, $no_of_records_per_page");
                 $query = mysqli_query($con, "select tblposts.id as pid,tblposts.PostTitle as posttitle,tblposts.PostImage,tblcategory.CategoryName as category,tblcategory.id as cid,tblposts.PostDetails as postdetails,tblposts.PostingDate as postingdate,tblposts.PostUrl as url from tblposts left join tblcategory on tblcategory.id=tblposts.CategoryId where tblposts.Is_Active=1 order by tblposts.id desc  LIMIT $offset, $no_of_records_per_page");
-                while ($row = mysqli_fetch_array($query)) {
+                ?>
+
+                <table>
+                    <?php
+                    $record_id = 0;
+                    while ($row = mysqli_fetch_array($query)) {
+                        for ($column = 1; $column <= $max_columns; $column++) {
+                            if (!isset($query[$record_id])) {
+                                return;
+                            }
+                            if ($column == 1) {
+                                echo "<tr>";
+                            }
+                    ?>
+
+                            <!--CARD FOR Each Post start----------------------------------->
+                            <!--CARD FOR Each Post start----------------------------------->
+                            <!--CARD FOR Each Post start----------------------------------->
+                            <div class="card mb-4">
+                                <img class="card-img-top" src="admin/postimages/<?php echo htmlentities($row['PostImage']); ?>" alt="<?php echo htmlentities($row['posttitle']); ?>">
+
+
+                                <div class="card-body">
+                                    <h2 class="card-title"><?php echo htmlentities($row['posttitle']); ?></h2>
+                                    <p><b>Category: </b> <a href="category.php?catid=<?php echo htmlentities($row['cid']) ?>"><?php echo htmlentities($row['category']); ?></a> </p>
+
+                                    <a href="news-details.php?nid=<?php echo htmlentities($row['pid']) ?>" class="btn btn-primary">Read More &rarr;</a>
+                                </div>
+                                <div class="card-footer text-muted">
+                                    Posted on <?php echo htmlentities($row['postingdate']); ?>
+                                </div>
+                            </div>
+                            <!--CARD FOR Each Post END------------------------------->
+                            <!--CARD FOR Each Post END------------------------------->
+
+                    <?php
+                    if($column==$max_columns){
+                        echo "</tr";
+                    }
+                            $record_id++;
+                        }
+                    }
+
+                    ?>
+                </table>
+
+
+                <?php
+                
                 ?>
 
 
-                    <!--CARD FOR Each Post start----------------------------------->
-                    <!--CARD FOR Each Post start----------------------------------->
-                    <!--CARD FOR Each Post start----------------------------------->
-                    <div class="card mb-4">
-                        <img class="card-img-top" src="admin/postimages/<?php echo htmlentities($row['PostImage']); ?>" alt="<?php echo htmlentities($row['posttitle']); ?>">
 
-
-                        <div class="card-body">
-                            <h2 class="card-title"><?php echo htmlentities($row['posttitle']); ?></h2>
-                            <p><b>Category: </b> <a href="category.php?catid=<?php echo htmlentities($row['cid']) ?>"><?php echo htmlentities($row['category']); ?></a> </p>
-
-                            <a href="news-details.php?nid=<?php echo htmlentities($row['pid']) ?>" class="btn btn-primary">Read More &rarr;</a>
-                        </div>
-                        <div class="card-footer text-muted">
-                            Posted on <?php echo htmlentities($row['postingdate']); ?>
-
-                        </div>
-                    </div>
-                    <!--CARD FOR Each Post END------------------------------->
-                    <!--CARD FOR Each Post END------------------------------->
-                <?php } ?>
-
-
-                    <!--updae-->
 
                 <!-- Pagination Footer------>
                 <!-- Pagination Footer------>
