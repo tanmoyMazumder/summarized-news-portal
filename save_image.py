@@ -9,6 +9,8 @@ def save_img(url):
         if i != '/':
             file_name += i
     file_name = file_name.replace(":",'')
+    file_name = file_name.split('?')[0]
+    file_name = 'pics/'+file_name
     print(f"file name: {file_name}")
     res = requests.get(url, stream = True)
 
@@ -19,4 +21,4 @@ def save_img(url):
     else:
         print('Image Couldn\'t be retrieved')
 
-save_img('https://www.daily-sun.com/assets/news_images/2022/10/18/Love.jpg')
+#save_img('https://www.daily-sun.com/assets/news_images/2022/10/18/Love.jpg')
