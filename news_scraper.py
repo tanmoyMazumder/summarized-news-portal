@@ -25,7 +25,7 @@ def scrape(l, topic='bleh'):
     image_link= article.top_image
     
     #urllib.request.urlretrieve(str(image_link), "local-filename.jpg")
-    save_img(image_link)
+    img_name = save_img(image_link)
     
     
     print("==================================================================================")
