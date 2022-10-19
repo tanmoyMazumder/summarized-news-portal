@@ -13,7 +13,7 @@ if(isset($_POST['submit']))
 {
 $posttitle=$_POST['posttitle'];
 $catid=$_POST['category'];
-$subcatid=$_POST['subcategory'];
+//$subcatid=$_POST['subcategory'];
 $postdetails=$_POST['postdescription'];
 $arr = explode(" ",$posttitle);
 $url=implode("-",$arr);
@@ -35,7 +35,8 @@ $imgnewfile=md5($imgfile).$extension;
 move_uploaded_file($_FILES["postimage"]["tmp_name"],"postimages/".$imgnewfile);
 
 $status=1;
-$query=mysqli_query($con,"insert into tblposts(PostTitle,CategoryId,SubCategoryId,PostDetails,PostUrl,Is_Active,PostImage) values('$posttitle','$catid','$subcatid','$postdetails','$url','$status','$imgnewfile')");
+// $query=mysqli_query($con,"insert into tblposts(PostTitle,CategoryId,SubCategoryId,PostDetails,PostUrl,Is_Active,PostImage) values('$posttitle','$catid','$subcatid','$postdetails','$url','$status','$imgnewfile')");
+$query=mysqli_query($con,"insert into tblposts(PostTitle,CategoryId,PostDetails,PostUrl,Is_Active,PostImage) values('$posttitle','$catid','$postdetails','$url','$status','$imgnewfile')");
 if($query)
 {
 $msg="Post successfully added ";
@@ -81,16 +82,19 @@ $error="Something went wrong . Please try again.";
 		<link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
         <script src="assets/js/modernizr.min.js"></script>
  <script>
-function getSubCat(val) {
-  $.ajax({
-  type: "POST",
-  url: "get_subcategory.php",
-  data:'catid='+val,
-  success: function(data){
-    $("#subcategory").html(data);
-  }
-  });
-  }
+
+    // sub category
+// function getSubCat(val) {
+//   $.ajax({
+//   type: "POST",
+//   url: "get_subcategory.php",
+//   data:'catid='+val,
+//   success: function(data){
+//     $("#subcategory").html(data);
+//   }
+//   });
+//   }
+// ------end -------
   </script>
     </head>
 
@@ -172,8 +176,9 @@ function getSubCat(val) {
 
 <div class="form-group m-b-20">
 <label for="exampleInputEmail1">Category</label>
-<select class="form-control" name="category" id="category" onChange="getSubCat(this.value);" required>
-<option value="">Select Category </option>
+<!-- <select class="form-control" name="category" id="category" onChange="getSubCat(this.value);" required> -->
+<select class="form-control" name="category" id="category" required>
+<!-- <option value="">Select Category </option> -->
 <?php
 // Feching active categories
 $ret=mysqli_query($con,"select id,CategoryName from  tblcategory where Is_Active=1");
@@ -185,12 +190,12 @@ while($result=mysqli_fetch_array($ret))
 
 </select> 
 </div>
-    
-<div class="form-group m-b-20">
+    <!-- sub category part -->
+<!-- <div class="form-group m-b-20">
 <label for="exampleInputEmail1">Sub Category</label>
 <select class="form-control" name="subcategory" id="subcategory" required>
 </select> 
-</div>
+</div> -->
          
 
 <div class="row">
