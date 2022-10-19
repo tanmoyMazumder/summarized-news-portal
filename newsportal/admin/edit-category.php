@@ -30,7 +30,7 @@ $error="Something went wrong . Please try again.";
 <html lang="en">
     <head>
 
-        <title>NewsBulletin | Add Category</title>
+        <title>BriefBulletin | Add Category</title>
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />

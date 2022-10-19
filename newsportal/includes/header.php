@@ -6,15 +6,16 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-
                 <li class="nav-item">
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php">News</a>
+                    <a class="nav-link" href="index.php">Home</a>
                 </li>
+                <a class="nav-link" href="category.php?catid=3">Sports</a>
+                <a class="nav-link" href="category.php?catid=5">Entertainment</a>
+                <a class="nav-link" href="category.php?catid=6">BD and World</a>
                 <a class="nav-link" href="about-us.php">About</a>
-
-
+                
                 <li class="nav-item">
                     <a class="nav-link" href="contact-us.php">Contact us</a>
                 </li>

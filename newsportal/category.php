@@ -47,10 +47,6 @@ include('includes/config.php');
 
 
 
-
-
-
-
                 if (isset($_GET['pageno'])) {
                     $pageno = $_GET['pageno'];
                 } else {
