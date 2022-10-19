@@ -142,14 +142,14 @@ if($_GET['presid'])
                                            
 <th>Title</th>
 <th>Category</th>
-<th>Subcategory</th>
+<!-- <th>Subcategory</th> -->
 <th>Action</th>
 </tr>
 </thead>
 <tbody>
 
 <?php
-$query=mysqli_query($con,"select tblposts.id as postid,tblposts.PostTitle as title,tblcategory.CategoryName as category,tblsubcategory.Subcategory as subcategory from tblposts left join tblcategory on tblcategory.id=tblposts.CategoryId left join tblsubcategory on tblsubcategory.SubCategoryId=tblposts.SubCategoryId where tblposts.Is_Active=0");
+$query=mysqli_query($con,"select tblposts.id as postid,tblposts.PostTitle as title,tblcategory.CategoryName as category,tblposts.CategoryId from tblposts left join tblcategory on tblcategory.id=tblposts.CategoryId where tblposts.Is_Active=0");
 $rowcount=mysqli_num_rows($query);
 if($rowcount==0)
 {
@@ -166,7 +166,7 @@ while($row=mysqli_fetch_array($query))
  <tr>
 <td><b><?php echo htmlentities($row['title']);?></b></td>
 <td><?php echo htmlentities($row['category'])?></td>
-<td><?php echo htmlentities($row['subcategory'])?></td>
+<!-- <td><?//php echo htmlentities($row['subcategory'])?></td> -->
 
 <td>
 <a href="trash-posts.php?pid=<?php echo htmlentities($row['postid']);?>&&action=restore" onclick="return confirm('Do you really want to restore ?')"> <i class="ion-arrow-return-right" title="Restore this Post"></i></a>

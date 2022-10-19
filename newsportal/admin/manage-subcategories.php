@@ -34,7 +34,7 @@ if($_GET['action']=='perdel' && $_GET['scid'])
 <html lang="en">
     <head>
 
-        <title> News | Manage SubCategories</title>
+        <title> BriefBulletin | Manage SubCategories</title>
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
@@ -79,9 +79,9 @@ if($_GET['action']=='perdel' && $_GET['scid'])
                                         <li>
                                             <a href="#">Admin</a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="#">SubCategory </a>
-                                        </li>
+                                        </li> -->
                                         <li class="active">
                                            Manage SubCategories
                                         </li>
