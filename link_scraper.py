@@ -31,14 +31,14 @@ def scrape_dstar(page_link, topic):
             link_list.append('https://www.thedailystar.net' + link["href"])
 
     topics = {
-        0: 'bd',
-        1: 'entertainment',
-        2: 'sports'
+        0: 1,
+        1: 3,
+        2: 2
     }
     # for i in range(5):
     #     print(link_list[i])
 
-    for i in range(5):
+    for i in range(2):
         news_scraper.scrape(link_list[i], topics[topic])
 
         time.sleep(delay)
@@ -69,14 +69,14 @@ def scrape_dsun(page_link, topic):
 
     #print(f'the list {link_list}')
     topics = {
-        0: 'bd',
-        1: 'entertainment',
-        2: 'sports'
+        0: 1,
+        1: 3,
+        2: 2
     }
-    for i in range(5):
+    for i in range(2):
         print(link_list[i])
 
-    for i in range(5):
+    for i in range(2):
         news_scraper.scrape(link_list[i], topics[topic])
 
     time.sleep(delay)
@@ -107,13 +107,13 @@ def scrape_bbc(page_link, topic):
             link_list.append('https://www.bbc.com' + a["href"])
 
     topics = {
-        0: 'bdnworld',
-        1: 'entertainment',
-        2: 'sports'
+        0: 1,
+        1: 3,
+        2: 2
     }
 
 
-    for i in range(5):
+    for i in range(2):
         news_scraper.scrape(link_list[i], topics[topic])
         time.sleep(delay)
 

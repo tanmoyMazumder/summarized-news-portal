@@ -7,9 +7,9 @@ def save(news, topic):
 
     mydb = mysql.connector.connect(
     host="localhost",
-    user="admin",
-    password="Test@12345",
-    database="sqlfile/newsportal"
+    user="root",
+    password="",
+    database="newsportal"
     )
 
     mycursor = mydb.cursor()
@@ -21,4 +21,4 @@ def save(news, topic):
     mydb.commit()
 
     print(mycursor.rowcount, "record inserted.")
-save('https://www.bbc.com/news/av/world-europe-63318579',1)
+# save('https://www.bbc.com/news/av/world-europe-63318579',1)
