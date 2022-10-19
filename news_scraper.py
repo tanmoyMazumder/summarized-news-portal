@@ -1,6 +1,8 @@
 from newspaper import Article
 import save_news, time
 import nltk
+import urllib.request
+from save_image import save_img
 # create an article object
 def scrape(l, topic='bleh'):
     nltk.download('punkt')
@@ -20,12 +22,19 @@ def scrape(l, topic='bleh'):
     date = article.publish_date
     text = article.text
     summary = article.summary
+    image_link= article.top_image
+    
+    #urllib.request.urlretrieve(str(image_link), "local-filename.jpg")
+    save_img(image_link)
+    
+    
     print("==================================================================================")
     print("==================================================================================")
     print("==================================================================================\nLINK AND ACTUAL NEWS:")
     print(link)
     print(text)
     print('***********************************************************************************\nSUMMARY:')
+    print(image_link)
     print(summary)
     
     news = {
@@ -39,4 +48,4 @@ def scrape(l, topic='bleh'):
     
     save_news.save(news, topic)
     #print(news)
-scrape('https://www.bbc.com/sport/rugby-union/63309190')
+scrape('https://www.daily-sun.com/post/651134/Bond-star-Daniel-Craig-receives-same-medal-as-007')
