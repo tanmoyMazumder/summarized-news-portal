@@ -24,3 +24,7 @@ https://www.youtube.com/watch?v=SD9VPPvqxGQ
 https://www.youtube.com/watch?v=LTOOEWQ01H4&t=6s
 https://www.youtube.com/watch?v=at19OmH2Bg4&t=489s
 https://www.youtube.com/watch?v=hVCOrtOh1Wk
+
+http://localhost/phpmyadmin/index.php?route=/sql&pos=0&db=newsportal&table=tbladmin
+http://localhost/summarized-news-portal/newsportal/admin/manage-categories.php
+http://localhost/summarized-news-portal/newsportal/category.php?catid=6
