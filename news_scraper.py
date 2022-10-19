@@ -43,7 +43,8 @@ def scrape(l, topic='bleh'):
         'author':authors,
         'date' : str(date),
         'news_text': text,
-        'summary' : summary
+        'summary' : summary,
+        'img' : img_name
     }
     
     save_news.save(news, topic)
