@@ -17,9 +17,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
-                <a class="nav-link" href="category.php?catid=3">Sports</a>
-                <a class="nav-link" href="category.php?catid=5">Entertainment</a>
-                <a class="nav-link" href="category.php?catid=6">BD and World</a>
+                <a class="nav-link" href="category.php?catid=2">Sports</a>
+                <a class="nav-link" href="category.php?catid=3">Entertainment</a>
+                <a class="nav-link" href="category.php?catid=1">BD and World</a>
                 <a class="nav-link" href="about-us.php">About</a>
                 
                 <li class="nav-item">
