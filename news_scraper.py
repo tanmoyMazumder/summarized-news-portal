@@ -49,4 +49,4 @@ def scrape(l, topic='bleh'):
     
     save_news.save(news, topic)
     #print(news)
-scrape('https://www.daily-sun.com/post/651134/Bond-star-Daniel-Craig-receives-same-medal-as-007')
+scrape('https://www.daily-sun.com/post/651316/Man-Utd-too-good-for-Tottenham-Liverpool-revival-rolls-on')

@@ -13,6 +13,7 @@ if (isset($_POST['submit'])) {
             $name = $_POST['name'];
             $email = $_POST['email'];
             $comment = $_POST['comment'];
+            $posturl = $_POST['PostUrl'];
             $postid = intval($_GET['nid']);
             $st1 = '0';
             $query = mysqli_query($con, "insert into tblcomments(postId,name,email,comment,status) values('$postid','$name','$email','$comment','$st1')");
@@ -67,7 +68,7 @@ if (isset($_POST['submit'])) {
                 <?php
                 $pid = intval($_GET['nid']);
                 // $query = mysqli_query($con, "select tblposts.PostTitle as posttitle,tblposts.PostImage,tblcategory.CategoryName as category,tblcategory.id as cid,tblsubcategory.Subcategory as subcategory,tblposts.PostDetails as postdetails,tblposts.PostingDate as postingdate,tblposts.PostUrl as url from tblposts left join tblcategory on tblcategory.id=tblposts.CategoryId left join  tblsubcategory on  tblsubcategory.SubCategoryId=tblposts.SubCategoryId where tblposts.id='$pid'");
-                $query = mysqli_query($con, "select tblposts.PostTitle as posttitle,tblposts.PostImage,tblcategory.CategoryName as category,tblcategory.id as cid,tblposts.PostDetails as postdetails,tblposts.PostingDate as postingdate,tblposts.PostUrl as url from tblposts left join tblcategory on tblcategory.id=tblposts.CategoryId  where tblposts.id='$pid'");
+                $query = mysqli_query($con, "select tblposts.PostTitle as posttitle,tblposts.Posturl as posturl,tblposts.PostImage,tblcategory.CategoryName as category,tblcategory.id as cid,tblposts.PostDetails as postdetails,tblposts.PostingDate as postingdate,tblposts.PostUrl as url from tblposts left join tblcategory on tblcategory.id=tblposts.CategoryId  where tblposts.id='$pid'");
                 while ($row = mysqli_fetch_array($query)) {
                 ?>
 
@@ -84,7 +85,22 @@ if (isset($_POST['submit'])) {
 
                             <p class="card-text"><?php
                                                     $pt = $row['postdetails'];
-                                                    echo (substr($pt, 0)); ?></p>
+                                                    echo (substr($pt, 0));
+                                                    $url = $row['posturl'];
+                                                    $f = (substr($url, 0)) ?></p>
+                            
+                            <p class="card-text"><?php
+                            echo "This article was collected from:";
+                                                    ?></p>
+                            <p class="card-text"><?php
+                            
+                                                    $pt = $row['posturl'];
+                                                    echo (substr($pt, 0));
+                                                    $url = $row['posturl'];
+                                                    $f = (substr($url, 0)) ?></p>
+                            
+                            
+                            
 
                         </div>
                         <div class="card-footer text-muted">
