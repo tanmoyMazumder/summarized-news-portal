@@ -10,14 +10,14 @@ def save_img(url):
             file_name += i
     file_name = file_name.replace(":",'')
     file_name = file_name.split('?')[0]
-    file_name = 'newsportal/admin/postimages/'+file_name
+    file_path = 'newsportal/admin/postimages/'+file_name
     print(f"file name: {file_name}")
     res = requests.get(url, stream = True)
 
     if res.status_code == 200:
         with open(file_name,'wb') as f:
             shutil.copyfileobj(res.raw, f)
-        print('Image sucessfully Downloaded: ',file_name)
+        print('Image sucessfully Downloaded: ',file_path)
     else:
         print('Image Couldn\'t be retrieved')
     return file_name
